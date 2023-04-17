@@ -1,5 +1,5 @@
-import express from 'express';
-import Product from '../../models/productModel';
+import express from "express";
+import Product from "../../models/productModel";
 
 //get all products
 const get_products = async function (req, res) {
@@ -13,24 +13,24 @@ const search_products = async function (req, res) {
   const { query } = req;
   const pageSize = query.pageSize || PAGE_SIZE;
   const page = query.page || 1;
-  const category = query.category || '';
-  const price = query.price || '';
-  const rating = query.rating || '';
-  const order = query.order || '';
-  const searchQuery = query.query || '';
+  const category = query.category || "";
+  const price = query.price || "";
+  const rating = query.rating || "";
+  const order = query.order || "";
+  const searchQuery = query.query || "";
 
   const queryFilter =
-    searchQuery && searchQuery !== 'all'
+    searchQuery && searchQuery !== "all"
       ? {
           name: {
             $regex: searchQuery,
-            $options: 'i',
+            $options: "i",
           },
         }
       : {};
-  const categoryFilter = category && category !== 'all' ? { category } : {};
+  const categoryFilter = category && category !== "all" ? { category } : {};
   const ratingFilter =
-    rating && rating !== 'all'
+    rating && rating !== "all"
       ? {
           rating: {
             $gte: Number(rating),
@@ -38,25 +38,25 @@ const search_products = async function (req, res) {
         }
       : {};
   const priceFilter =
-    price && price !== 'all'
+    price && price !== "all"
       ? {
           // 1-50
           price: {
-            $gte: Number(price.split('-')[0]),
-            $lte: Number(price.split('-')[1]),
+            $gte: Number(price.split("-")[0]),
+            $lte: Number(price.split("-")[1]),
           },
         }
       : {};
   const sortOrder =
-    order === 'featured'
+    order === "featured"
       ? { featured: -1 }
-      : order === 'lowest'
+      : order === "lowest"
       ? { price: 1 }
-      : order === 'highest'
+      : order === "highest"
       ? { price: -1 }
-      : order === 'toprated'
+      : order === "toprated"
       ? { rating: -1 }
-      : order === 'newest'
+      : order === "newest"
       ? { createdAt: -1 }
       : { _id: -1 };
 
@@ -86,7 +86,7 @@ const search_products = async function (req, res) {
 
 //For Side bar functions -> Retriev Categories
 const get_ProductCategories = async function (req, res) {
-  const categories = await Product.find().distinct('category');
+  const categories = await Product.find().distinct("category");
   res.send(categories);
 };
 
@@ -96,7 +96,7 @@ const get_ProductSlugs = async function (req, res) {
   if (product) {
     res.send(product);
   } else {
-    res.status(404).send({ message: 'Product Not Found' });
+    res.status(404).send({ message: "Product Not Found" });
   }
 };
 
@@ -105,7 +105,7 @@ const get_productsById = async function (req, res) {
   if (product) {
     res.send(product);
   } else {
-    res.status(404).send({ message: 'Product Not Found' });
+    res.status(404).send({ message: "Product Not Found" });
   }
 };
 
