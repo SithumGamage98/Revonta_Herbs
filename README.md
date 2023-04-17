@@ -1,4 +1,4 @@
-# ---Revonta Hearbs Web Application---
+# ---Revonta Herbs Web Application---
 
 ## Technologies - MernStack
 
