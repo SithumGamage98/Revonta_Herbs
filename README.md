@@ -18,4 +18,7 @@
 
 ## 02. The buyers who visit the web application could search for the items and then choose which items to purchase
 
+## 03. A buyer could purchase multiple herbal items from the web store
+
+
 ![Screenshot 2023-04-14 124436](https://user-images.githubusercontent.com/100986253/231971346-cb2295dc-14ea-4490-844e-402e38ed2835.png)
