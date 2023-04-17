@@ -9,7 +9,8 @@
 ### 04. Weerasinghe R.B. - IT20622596
 
 # The functionalities offered by the web application
- ## 01. 
+ ## 01. The web interface for buyers to purchase necessary herbal items from the store
+ 
 
 
 
