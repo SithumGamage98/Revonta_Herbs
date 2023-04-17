@@ -12,13 +12,16 @@
 
 ### 04. Weerasinghe R.B. - IT20622596
 
-# The functionalities offered by the web application
+## The functionalities offered by the web application
 
-## 01. The web interface for viewing available herbal items which have been added by the sellers for buyers to purchase
+### 01. The web interface for viewing available herbal items which have been added by the sellers for buyers to purchase
 
-## 02. The buyers who visit the web application could search for the items and then choose which items to purchase
+#### 02. The buyers who visit the web application could search for the items and then choose which items to purchase
 
-## 03. A buyer could purchase multiple herbal items from the web store
+#### 03. A buyer could purchase multiple herbal items from the web store
 
-## 04. The buyers could make the payements for their purchase orders via credit card or paypal/ payhere services
+#### 04. The buyers could make the payements for their purchase orders via credit card or paypal/ payhere services
+
+#### 05. The system has the access for a payment gateway allowing credit card transactions
+
 ![Screenshot 2023-04-14 124436](https://user-images.githubusercontent.com/100986253/231971346-cb2295dc-14ea-4490-844e-402e38ed2835.png)
