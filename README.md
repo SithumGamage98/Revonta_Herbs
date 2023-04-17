@@ -20,5 +20,5 @@
 
 ## 03. A buyer could purchase multiple herbal items from the web store
 
-
+## 04. The buyers could make the payements for their purchase orders via credit card or paypal/ payhere services
 ![Screenshot 2023-04-14 124436](https://user-images.githubusercontent.com/100986253/231971346-cb2295dc-14ea-4490-844e-402e38ed2835.png)
