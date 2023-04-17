@@ -1,10 +1,10 @@
 import express from 'express';
 import {
-  search_products,
-  get_products,
-  get_ProductSlugs,
-  get_productsById,
-  get_ProductCategories,
+    search_products,
+    get_products,
+    get_ProductSlugs,
+    get_productsById,
+    get_ProductCategories,
 } from '../Controllers/Product_Controller';
 
 const ProductRouter = express.Router();
