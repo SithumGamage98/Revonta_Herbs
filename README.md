@@ -8,7 +8,8 @@
 ### 03. Amarakoon A.R.W.M.M.L.O. - IT20626792
 ### 04. Weerasinghe R.B. - IT20622596
 
-
+#The functionalities offered by the web application
+01. 
 
 
 
