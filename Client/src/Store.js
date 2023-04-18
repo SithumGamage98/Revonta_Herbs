@@ -23,7 +23,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case 'CART_ADD_ITEM':
-      // add to cart -> Can't enter the same item again and again to the cart
+      //add to cart -> Can't enter the same item again and again to the cart
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
         (item) => item._id === newItem._id

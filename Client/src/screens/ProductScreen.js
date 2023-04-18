@@ -53,7 +53,7 @@ export default function ProductScreen() {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
 
-      //setProducts(result.data);
+      // setProducts(result.data);
     };
     fetchData();
   }, [slug]);
@@ -61,9 +61,9 @@ export default function ProductScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
   const addToCartHandler = async () => {
-    //Check if the current product exits the Cart or not
+    // Check if the current product exits the Cart or not
     const existItem = cart.cartItems.find((x) => x._id === product._id);
-    //If it exists -->Increae quantity by one(1)
+    // If it exists -->Increase quantity by one(1)
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
