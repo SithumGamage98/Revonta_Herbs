@@ -4,33 +4,33 @@ import Order from '../../models/orderModel.js';
 //Save order
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
-    orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
-    shippingAddress: req.body.shippingAddress,
-    paymentMethod: req.body.paymentMethod,
-    itemsPrice: req.body.itemsPrice,
-    shippingPrice: req.body.shippingPrice,
-    taxPrice: req.body.taxPrice,
-    totalPrice: req.body.totalPrice,
-    user: req.user._id,
+      orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
+      shippingAddress: req.body.shippingAddress,
+      paymentMethod: req.body.paymentMethod,
+      itemsPrice: req.body.itemsPrice,
+      shippingPrice: req.body.shippingPrice,
+      taxPrice: req.body.taxPrice,
+      totalPrice: req.body.totalPrice,
+      user: req.user._id,
   });
 
   const order = await newOrder.save();
-  res.status(201).send({ message: 'New order created successfully!', order });
+      res.status(201).send({ message: 'New order created successfully!', order });
 };
 
 //For order History -> Return List Of orders of current user
 const get_orders = async function e(req, res) {
   const orders = await Order.find({ user: req.user._id });
-  res.send(orders);
+      res.send(orders);
 };
 
 //Retriview order details -> by using ID
 const get_orders_byId = async function (req, res) {
   const order = await Order.findById(req.params.id); //using the order ID
   if (order) {
-    res.send(order);
+      res.send(order);
   } else {
-    res.status(404).send({ message: 'Order Not Found...!!' });
+      res.status(404).send({ message: 'Order Not Found...!!' });
   }
 };
 
