@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import Product from '../components/Product';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
- //reducer function
+ // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
         pages: action.payload.pages,
         countProducts: action.payload.countProducts,
         loading: false,
-      };
+       };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
 
@@ -34,7 +34,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-// Product Price Ranges
+//Product Price Ranges
 const prices = [
   {
     name: '$1 to $50',
