@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 //import './Gama_CSS.css'
 import {
-  MDBNavbar,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBNavbarToggler,
-  MDBContainer,
-  MDBIcon,
-  MDBCollapse,
-  MDBBtn,
+    MDBNavbar,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBNavbarLink,
+    MDBNavbarToggler,
+    MDBContainer,
+    MDBIcon,
+    MDBCollapse,
+    MDBBtn,
 } from 'mdb-react-ui-kit';
 
 export default function Header() {
