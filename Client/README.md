@@ -1,6 +1,6 @@
 
 
-# -----Revonta Hearbs Web Application-----
+# ----Revonta Hearbs Web Application----
 ## Technologies - MernStack
 ## Collaborators -
 ### 01. Gamage W.G.S.S - IT20666606
