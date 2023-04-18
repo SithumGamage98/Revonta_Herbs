@@ -84,13 +84,13 @@ const search_products = async function (req, res) {
   });
 };
 
-  //For Side bar functions -> Retriev Categories
+  // For Side bar functions -> Retriev Categories
 const get_ProductCategories = async function (req, res) {
   const categories = await Product.find().distinct("category");
   res.send(categories);
 };
 
-  //get product slugs
+  // get product slugs
 const get_ProductSlugs = async function (req, res) {
   const product = await Product.findOne({ slug: req.params.slug });
   if (product) {
@@ -110,9 +110,9 @@ const get_productsById = async function (req, res) {
 };
 
 export default {
-  search_products,
-  get_products,
-  get_ProductSlugs,
-  get_productsById,
-  get_ProductCategories,
+   search_products,
+   get_products,
+   get_ProductSlugs,
+   get_productsById,
+   get_ProductCategories,
 };
