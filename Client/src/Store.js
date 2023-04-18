@@ -35,7 +35,7 @@ function reducer(state, action) {
           )
         : [...state.cart.cartItems, newItem];
 
-      // Store data in the Local Storage
+      //Store data in the Local Storage
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
       return { ...state, cart: { ...state.cart, cartItems } };
