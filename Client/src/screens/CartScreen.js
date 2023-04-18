@@ -17,7 +17,7 @@ export default function CartScreen() {
     cart: { cartItems },
   } = state;
 
-  // Update (increase/decrease) items
+  //Update (increase/decrease) items
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
 
