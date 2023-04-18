@@ -20,7 +20,7 @@ export default function SigninScreen() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
-  //const { userInfo } = state;
+    //const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -71,7 +71,7 @@ export default function SigninScreen() {
         </div>
         <div className="mb-3">
           New customer?{' '}
-          <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+          <Link to={`/signup?redirect=${redirect}`}>Create your own account</Link>
         </div>
       </Form>
     </Container>
