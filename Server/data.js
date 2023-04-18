@@ -5,14 +5,14 @@ const data = {
 
   users: [
     {
-      //Admin user
+      // Admin user
       name: 'Sithum',
       email: 'sithum98@gmail.com',
       password: bcrypt.hashSync('1234'),
       isAdmin: true,
     },
     {
-      //normal user
+      // normal user
       name: 'Heshan',
       email: 'Heshan98@gmail.com',
       password: bcrypt.hashSync('9999'),
@@ -20,7 +20,7 @@ const data = {
     },
   ],
 
-  //Products data
+  // Products data
   products: [
     {
       // _id: '1',

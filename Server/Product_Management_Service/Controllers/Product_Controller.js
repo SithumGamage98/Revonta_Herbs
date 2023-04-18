@@ -40,7 +40,7 @@ const search_products = async function (req, res) {
   const priceFilter =
     price && price !== "all"
       ? {
-          // 1-50
+            //1-50
           price: {
             $gte: Number(price.split("-")[0]),
             $lte: Number(price.split("-")[1]),
@@ -84,13 +84,13 @@ const search_products = async function (req, res) {
   });
 };
 
-//For Side bar functions -> Retriev Categories
+  // For Side bar functions -> Retriev Categories
 const get_ProductCategories = async function (req, res) {
   const categories = await Product.find().distinct("category");
   res.send(categories);
 };
 
-//get product slugs
+  // get product slugs
 const get_ProductSlugs = async function (req, res) {
   const product = await Product.findOne({ slug: req.params.slug });
   if (product) {

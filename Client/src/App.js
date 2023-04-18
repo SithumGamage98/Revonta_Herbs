@@ -36,7 +36,7 @@ function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
-  //SignOutHandler function -> These things happen when signOut
+    //SignOutHandler function -> These things happen when signOut
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
@@ -44,7 +44,7 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   };
-  //Side Bar
+    //Side Bar
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
@@ -179,7 +179,7 @@ function App() {
               {/*<Route path="/profile" element={<ProfileScreen />} />*/}
               <Route path="/search" element={<SearchScreen />} />
 
-              {/* Route for Seller Dashboard */}
+              {/* Route for the Seller Dashboard */}
               <Route
                 path="/profile"
                 element={
@@ -188,7 +188,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              {/*Route for Order */}
+              {/*Route for the Order */}
               <Route
                 path="/order/:id"
                 element={
@@ -198,7 +198,7 @@ function App() {
                 }
               ></Route>
 
-              {/*Route for Order history */}
+              {/*Route for the Order history */}
               <Route
                 path="/orderhistory"
                 element={

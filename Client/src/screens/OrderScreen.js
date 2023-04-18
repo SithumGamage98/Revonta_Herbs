@@ -16,14 +16,14 @@ import { toast } from 'react-toastify';
 
 function reducer(state, action) {
   switch (action.type) {
-    //for order request functionalaties
+    // for order request functionalaties
     case 'FETCH_REQUEST':
       return { ...state, loading: true, error: '' };
     case 'FETCH_SUCCESS':
       return { ...state, loading: false, order: action.payload, error: '' };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
-    //for payppal payments
+    // for paypal payments
     case 'PAY_REQUEST':
       return { ...state, loadingPay: true };
     case 'PAY_SUCCESS':
@@ -57,7 +57,7 @@ export default function OrderScreen() {
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
-  //Implemet createOrder Function
+  // Implemet the createOrder Function
   function createOrder(data, actions) {
     return actions.order
       .create({
@@ -72,7 +72,7 @@ export default function OrderScreen() {
       });
   }
 
-  //implement onApprove function -> This happen only successfull capture/done the payment
+  // implement onApprove function -> This happen only if successfull capture/done the payment
   function onApprove(data, actions) {
     return actions.order.capture().then(async function (details) {
       try {

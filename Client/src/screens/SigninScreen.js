@@ -20,7 +20,7 @@ export default function SigninScreen() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
-  //const { userInfo } = state;
+    // const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -34,6 +34,7 @@ export default function SigninScreen() {
     } catch (err) {
       toast.error(getError(err));
     }
+
   };
 
   useEffect(() => {

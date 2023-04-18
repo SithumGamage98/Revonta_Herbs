@@ -9,10 +9,10 @@ import {
 
 const ProductRouter = express.Router();
 
-ProductRouter.post('/', get_products);
-ProductRouter.get('/search', search_products);
-ProductRouter.get('/:id', get_productsById);
-ProductRouter.put('/slug/:slug', get_ProductSlugs);
-ProductRouter.put('/categories', get_ProductCategories);
+ ProductRouter.post('/', get_products);
+ ProductRouter.get('/search', search_products);
+ ProductRouter.get('/:id', get_productsById);
+ ProductRouter.put('/slug/:slug', get_ProductSlugs);
+ ProductRouter.put('/categories', get_ProductCategories);
 
 export default ProductRouter;

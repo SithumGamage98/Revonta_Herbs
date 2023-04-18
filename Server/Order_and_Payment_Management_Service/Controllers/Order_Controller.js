@@ -1,7 +1,7 @@
 import express from 'express';
 import Order from '../../models/orderModel.js';
 
-//Save order
+  //Save the  order
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
       orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
@@ -18,13 +18,13 @@ const creat_Order = async function (req, res) {
       res.status(201).send({ message: 'New order created successfully!', order });
 };
 
-//For order History -> Return List Of orders of current user
+  //For order History -> Return List Of orders of current user
 const get_orders = async function e(req, res) {
   const orders = await Order.find({ user: req.user._id });
       res.send(orders);
 };
 
-//Retriview order details -> by using ID
+  //Retriview order details -> by using ID
 const get_orders_byId = async function (req, res) {
   const order = await Order.findById(req.params.id); //using the order ID
   if (order) {
@@ -34,7 +34,7 @@ const get_orders_byId = async function (req, res) {
   }
 };
 
-//update order data
+  // update the order data
 const update_order = async function (req, res) {
   const order = await Order.findById(req.params.id);
   if (order) {
