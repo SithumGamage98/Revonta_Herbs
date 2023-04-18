@@ -110,9 +110,9 @@ const get_productsById = async function (req, res) {
 };
 
 export default {
-   search_products,
-   get_products,
-   get_ProductSlugs,
-   get_productsById,
-   get_ProductCategories,
+  search_products,
+  get_products,
+  get_ProductSlugs,
+  get_productsById,
+  get_ProductCategories,
 };

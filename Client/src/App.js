@@ -218,7 +218,7 @@ function App() {
                 }
               ></Route>
 
-              {/* Shipping Route  */}
+              {/* Shipping Route */}
               <Route
                 path="/shipping"
                 element={<ShippingAddressScreen />}
