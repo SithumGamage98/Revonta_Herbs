@@ -31,14 +31,14 @@ const user_signUp = async function (req, res) {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password),
   });
-  // Save new user in the database
+  //Save new user in the database
   const user = await newUser.save();
   res.send({
     _id: user._id,
     name: user.name,
     email: user.email,
     isAdmin: user.isAdmin,
-    token: generateToken(user), // Create a tocken for the each of the user
+    token: generateToken(user), //Create a tocken for the each of the user
   });
 };
 

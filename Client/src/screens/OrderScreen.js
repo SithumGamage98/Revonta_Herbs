@@ -57,7 +57,7 @@ export default function OrderScreen() {
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
-  // Implemet the createOrder Function
+  //Implemet the createOrder Function
   function createOrder(data, actions) {
     return actions.order
       .create({
@@ -72,7 +72,7 @@ export default function OrderScreen() {
       });
   }
 
-  //implement onApprove function -> This happen only successfull capture/done the payment
+  //implement onApprove function -> This happen only if successfull capture/done the payment
   function onApprove(data, actions) {
     return actions.order.capture().then(async function (details) {
       try {
