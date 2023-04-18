@@ -71,7 +71,7 @@ function reducer(state, action) {
         },
       };
 
-    //Save payment method
+    //Save the  payment method
     case 'SAVE_PAYMENT_METHOD':
       return {
         ...state,
