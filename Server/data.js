@@ -5,7 +5,7 @@ const data = {
 
   users: [
     {
-      //Admin user
+      // Admin user
       name: 'Sithum',
       email: 'sithum98@gmail.com',
       password: bcrypt.hashSync('1234'),

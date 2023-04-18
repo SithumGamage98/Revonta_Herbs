@@ -34,7 +34,7 @@ const get_orders_byId = async function (req, res) {
   }
 };
 
-  //update the order data
+  // update the order data
 const update_order = async function (req, res) {
   const order = await Order.findById(req.params.id);
   if (order) {

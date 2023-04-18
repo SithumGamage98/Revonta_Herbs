@@ -14,7 +14,7 @@
 
 ### The functionalities offered by the web application
 
-### 01. The web interface for viewing available herbal items which have been added by the sellers for buyers to purchase
+#### 01. The web interface for viewing available herbal items which have been added by the sellers for buyers to purchase
 
 #### 02. The buyers who visit the web application could search for the items and then choose which items to purchase
 
