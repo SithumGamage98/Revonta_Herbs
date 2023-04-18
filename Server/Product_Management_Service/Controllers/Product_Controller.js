@@ -42,33 +42,33 @@ const search_products = async function (req, res) {
       ? {
           // 1-50
           price: {
-             $gte: Number( price.split("-")[0] ),
-             $lte: Number( price.split("-")[1] ),
+            $gte: Number(price.split("-")[0]),
+            $lte: Number(price.split("-")[1]),
           },
         }
       : {};
   const sortOrder =
     order === "featured"
-      ? {  featured: -1   }
+      ? { featured: -1 }
       : order === "lowest"
-      ? {   price: 1  }
+      ? { price: 1 }
       : order === "highest"
-      ? {   price: -1   }
+      ? { price: -1 }
       : order === "toprated"
-      ? {   rating: -1  }
+      ? { rating: -1 }
       : order === "newest"
-      ? {   createdAt: -1  }
-      : {   _id: -1   };
+      ? { createdAt: -1 }
+      : { _id: -1 };
 
   const products = await Product.find({
-      ...queryFilter,
-      ...categoryFilter,
-      ...priceFilter,
-      ...ratingFilter,
+    ...queryFilter,
+    ...categoryFilter,
+    ...priceFilter,
+    ...ratingFilter,
   })
-      .sort(sortOrder)
-      .skip(pageSize * (page - 1))
-      .limit(pageSize);
+    .sort(sortOrder)
+    .skip(pageSize * (page - 1))
+    .limit(pageSize);
 
   const countProducts = await Product.countDocuments({
     ...queryFilter,
@@ -77,42 +77,42 @@ const search_products = async function (req, res) {
     ...ratingFilter,
   });
   res.send({
-      products,
-      countProducts,
-      page,
-      pages: Math.ceil(countProducts / pageSize),
+    products,
+    countProducts,
+    page,
+    pages: Math.ceil(countProducts / pageSize),
   });
 };
 
 //For Side bar functions -> Retriev Categories
-const   get_ProductCategories = async function (req, res) {
-   const  categories = await Product.find().distinct("category");
+const get_ProductCategories = async function (req, res) {
+  const categories = await Product.find().distinct("category");
   res.send(categories);
 };
 
 //get product slugs
-const  get_ProductSlugs = async function (req, res) {
-  const  product = await Product.findOne({ slug: req.params.slug });
+const get_ProductSlugs = async function (req, res) {
+  const product = await Product.findOne({ slug: req.params.slug });
   if (product) {
-      res.send(product);
+    res.send(product);
   } else {
-      res.status(404).send({ message: "Product Not Found" });
+    res.status(404).send({ message: "Product Not Found" });
   }
 };
 
-const  get_productsById = async function (req, res) {
-  const  product = await Product.findById(req.params.id);
+const get_productsById = async function (req, res) {
+  const product = await Product.findById(req.params.id);
   if (product) {
-      res.send(product);
+    res.send(product);
   } else {
-      res.status(404).send({ message: "Product Not Found" });
+    res.status(404).send({ message: "Product Not Found" });
   }
 };
 
 export default {
-    search_products,
-    get_products,
-    get_ProductSlugs,
-    get_productsById,
-    get_ProductCategories,
+  search_products,
+  get_products,
+  get_ProductSlugs,
+  get_productsById,
+  get_ProductCategories,
 };
