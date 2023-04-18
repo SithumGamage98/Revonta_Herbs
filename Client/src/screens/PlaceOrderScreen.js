@@ -13,7 +13,7 @@ import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
 
- // Reducer implementation with the Switch case
+ //Reducer implementation with the Switch case
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CREATE_REQUEST':

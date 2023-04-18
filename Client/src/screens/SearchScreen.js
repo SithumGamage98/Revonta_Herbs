@@ -34,7 +34,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-// Product Price Ranges
+//Product Price Ranges
 const prices = [
   {
     name: '$1 to $50',

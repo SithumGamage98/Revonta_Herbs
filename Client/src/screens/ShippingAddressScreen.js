@@ -104,7 +104,7 @@ export default function ShippingAddressScreen() {
             />
           </Form.Group>
 
-          {/*Country  */}
+          {/*Country */}
           <Form.Group className="mb-3" controlId="country">
             <Form.Label>Country</Form.Label>
             <Form.Control
