@@ -42,8 +42,8 @@ const search_products = async function (req, res) {
       ? {
           // 1-50
           price: {
-            $gte: Number(price.split("-")[0]),
-            $lte: Number(price.split("-")[1]),
+            $gte: Number( price.split("-")[0] ),
+            $lte: Number( price.split("-")[1] ),
           },
         }
       : {};
@@ -61,10 +61,10 @@ const search_products = async function (req, res) {
       : { _id: -1 };
 
   const products = await Product.find({
-    ...queryFilter,
-    ...categoryFilter,
-    ...priceFilter,
-    ...ratingFilter,
+      ...queryFilter,
+      ...categoryFilter,
+      ...priceFilter,
+      ...ratingFilter,
   })
     .sort(sortOrder)
     .skip(pageSize * (page - 1))
@@ -77,10 +77,10 @@ const search_products = async function (req, res) {
     ...ratingFilter,
   });
   res.send({
-    products,
-    countProducts,
-    page,
-    pages: Math.ceil(countProducts / pageSize),
+      products,
+      countProducts,
+      page,
+      pages: Math.ceil(countProducts / pageSize),
   });
 };
 
