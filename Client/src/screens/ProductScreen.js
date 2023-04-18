@@ -14,7 +14,7 @@ import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
 
-//Define useReducer
+ //Define useReducer
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
