@@ -12,8 +12,8 @@ export default function ShippingAddressScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
 
   const {
-    userInfo,
-    cart: { shippingAddress },
+   userInfo,
+   cart: { shippingAddress },
   } = state;
   const [fullName, setFullName] = useState(shippingAddress.fullName || '');
   const [address, setAddress] = useState(shippingAddress.address || '');
@@ -23,14 +23,14 @@ export default function ShippingAddressScreen() {
   );
   const [country, setCountry] = useState(shippingAddress.country || '');
 
-  //store data permenently
+    //store data permenently
   useEffect(() => {
     if (!userInfo) {
       navigate('/signin?redirect=/shipping');
     }
   }, [userInfo, navigate]);
 
-  //submitHandler function
+   //submitHandler function
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({
@@ -45,7 +45,7 @@ export default function ShippingAddressScreen() {
     });
     localStorage.setItem(
       'shippingAddress',
-      JSON.stringify({
+       JSON.stringify({
         fullName,
         address,
         city,
