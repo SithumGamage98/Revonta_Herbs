@@ -28,7 +28,7 @@ export default function SignupScreen() {
     e.preventDefault();
     //Password Validation -> If password doesn't match the confirm password there is an error message
     if (password !== confirmPassword) {
-      toast.error('Password do not match!!');
+      toast.error('Password is not match!!');
       return;
     }
     try {
