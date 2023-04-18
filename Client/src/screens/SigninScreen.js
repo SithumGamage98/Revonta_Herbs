@@ -34,6 +34,7 @@ export default function SigninScreen() {
     } catch (err) {
       toast.error(getError(err));
     }
+    
   };
 
   useEffect(() => {
@@ -71,7 +72,7 @@ export default function SigninScreen() {
         </div>
         <div className="mb-3">
           New customer?{' '}
-          <Link to={`/signup?redirect=${redirect}`}>Create your own account</Link>
+          <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
         </div>
       </Form>
     </Container>
