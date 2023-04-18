@@ -42,8 +42,8 @@ const search_products = async function (req, res) {
       ? {
           // 1-50
           price: {
-            $gte: Number( price.split("-")[0] ),
-            $lte: Number( price.split("-")[1] ),
+             $gte: Number( price.split("-")[0] ),
+             $lte: Number( price.split("-")[1] ),
           },
         }
       : {};
