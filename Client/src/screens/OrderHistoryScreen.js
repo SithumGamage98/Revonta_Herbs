@@ -8,7 +8,6 @@ import { Store } from '../Store';
 import { getError } from '../utils';
 import { Button } from 'react-bootstrap';
 
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -21,7 +20,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
 
 export default function OrderHistoryScreen() {
   const { state } = useContext(Store);
