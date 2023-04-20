@@ -10,18 +10,18 @@ import { toast } from 'react-toastify';
 import { getError } from '../utils';
 
 export default function SigninScreen() {
-  const navigate = useNavigate();
-  const { search } = useLocation();
-  const redirectInUrl = new URLSearchParams(search).get('redirect');
-  const redirect = redirectInUrl ? redirectInUrl : '/';
+    const navigate = useNavigate();
+    const { search } = useLocation();
+    const redirectInUrl = new URLSearchParams(search).get('redirect');
+    const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { userInfo } = state;
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { userInfo } = state;
     // const { userInfo } = state;
-  const submitHandler = async (e) => {
+    const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const { data } = await Axios.post('/api/users/signin', {
