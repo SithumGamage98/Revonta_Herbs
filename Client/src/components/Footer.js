@@ -1,4 +1,4 @@
-import React from 'react';
+gotimport React from 'react';
 import {
   MDBFooter,
   MDBContainer,
