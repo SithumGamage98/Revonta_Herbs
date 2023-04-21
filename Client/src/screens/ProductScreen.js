@@ -31,30 +31,30 @@ const reducer = (state, action) => {
 };
 
 export default function ProductScreen() {
-  // UseNavigate
-  const navigate = useNavigate();
-  // Using useParam Hook function
-  const params = useParams();
-  const { slug } = params;
+    // UseNavigate
+    const navigate = useNavigate();
+    // Using useParam Hook function
+    const params = useParams();
+    const { slug } = params;
 
-  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
-    product: [],
-    loading: true,
-    error: '',
-  });
+    const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+      product: [],
+      loading: true,
+      error: '',
+    });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch({ type: 'FETCH_REQUEST' });
-      try {
-        const result = await axios.get(`/api/products/slug/${slug}`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-      } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
-      }
+    useEffect(() => {
+      const fetchData = async () => {
+        dispatch({ type: 'FETCH_REQUEST' });
+        try {
+          const result = await axios.get(`/api/products/slug/${slug}`);
+          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        } catch (err) {
+          dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        }
 
-      // setProducts(result.data);
-    };
+        // setProducts(result.data);
+      };
     fetchData();
   }, [slug]);
 
