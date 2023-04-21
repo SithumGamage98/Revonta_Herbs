@@ -7,12 +7,12 @@ import { useContext } from "react";
 import { Store } from "../Store";
 
 function Product(props) {
-  const { product } = props;
+    const { product } = props;
 
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  const {
-    cart: { cartItems },
-  } = state;
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const {
+      cart: { cartItems },
+    } = state;
 
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === product._id);
