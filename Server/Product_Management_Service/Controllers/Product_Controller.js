@@ -8,6 +8,7 @@ const get_products = async function (req, res) {
 };
 
 //Search/Filter Products
+
 const PAGE_SIZE = 3; //default page size
 const search_products = async function (req, res) {
   const { query } = req;
@@ -20,6 +21,7 @@ const search_products = async function (req, res) {
   const searchQuery = query.query || "";
 
   const queryFilter =
+        
     searchQuery && searchQuery !== "all"
       ? {
           name: {
@@ -31,6 +33,7 @@ const search_products = async function (req, res) {
   const categoryFilter = category && category !== "all" ? { category } : {};
   const ratingFilter =
     rating && rating !== "all"
+  
       ? {
           rating: {
             $gte: Number(rating),
@@ -47,6 +50,7 @@ const search_products = async function (req, res) {
           },
         }
       : {};
+  
   const sortOrder =
     order === "featured"
       ? { featured: -1 }
