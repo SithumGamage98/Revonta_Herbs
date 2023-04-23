@@ -2,6 +2,7 @@ import express from "express";
 import Product from "../../models/productModel";
 
 //get all products
+
 const get_products = async function (req, res) {
   const products = await Product.find();
   res.send(products); //from product model
