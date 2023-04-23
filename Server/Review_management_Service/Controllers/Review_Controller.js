@@ -4,6 +4,7 @@ import Order from '../../models/orderModel.js';
   //Save the  order
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
+    
         orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
         shippingAddress: req.body.shippingAddress,
         paymentMethod: req.body.paymentMethod,
