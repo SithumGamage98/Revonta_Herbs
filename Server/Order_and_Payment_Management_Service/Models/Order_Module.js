@@ -2,7 +2,9 @@ import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema(
   {
+    
     orderItems: [
+      
       {
           slug: { type: String, required: true },
           name: { type: String, required: true },
@@ -13,8 +15,11 @@ const orderSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',
             required: true,
+            
         },
+        
       },
+      
     ],
     shippingAddress: {
        fullName: {  type: String, required: true  },

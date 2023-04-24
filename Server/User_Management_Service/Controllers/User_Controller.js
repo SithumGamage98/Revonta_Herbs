@@ -4,6 +4,7 @@ import User from '../Models/User_Module.js';
 import { generateToken } from '../utils.js';
 
 //post function for Sign in
+
 const user_signIn = async function (req, res) {
   // Indentify user by using the email
   const user = await User.findOne({ email: req.body.email });
@@ -18,6 +19,7 @@ const user_signIn = async function (req, res) {
           isAdmin: user.isAdmin,
           token: generateToken(user), //Create a tocken for the each of the user
       });
+      
       return;
     }
   }
@@ -43,6 +45,7 @@ const user_signUp = async function (req, res) {
 };
 
 // For Update User Profile Data
+
 const user_update = async function (req, res) {
    const user = await User.findById(req.user._id);
   if (user) {

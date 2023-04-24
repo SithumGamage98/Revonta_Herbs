@@ -2,6 +2,7 @@ import express from 'express';
 import Order from '../../models/orderModel.js';
 
   //Save the  order
+
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
         orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
@@ -19,6 +20,8 @@ const creat_Order = async function (req, res) {
 };
 
   //For order History -> Return List Of orders of current user
+
+
 const get_orders = async function e(req, res) {
   const orders =  await Order.find({ user: req.user._id });
         res.send(orders);
