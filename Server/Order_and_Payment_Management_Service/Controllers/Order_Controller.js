@@ -2,7 +2,7 @@ import express from 'express';
 import Order from '../../models/orderModel.js';
 
 //Save the  order
-
+//Testing
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
     orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
