@@ -13,6 +13,7 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: 'high quality shirt',
+      
     },
 
     {
