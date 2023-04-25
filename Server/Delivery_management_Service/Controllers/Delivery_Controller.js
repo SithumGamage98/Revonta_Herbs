@@ -1,17 +1,20 @@
-import mongoose from 'mongoose';
+import express from 'express';
+import Delivery from '../Models/Delivery_Model';
 
-const deliveryScheama = new mongoose.Schema(
-  {
-    fullName: { type: String, required: true },
-    address: { type: String, required: true },
-    city: { type: String, required: true },
-    postalCode: { type: String, required: true },
-    country: { type: String, required: true },
-  },
-  {
-    timestamps: true,
-  }
-);
+//Create a delivery
+const add_delivery = async function (req, res) {
+  const newDelivery = new Delivery({
+    fullName: req.body.fullName,
+    address: req.body.address,
+    city: req.body.city,
+    postalCode: req.body.postalCode,
+    country: req.body.country,
+  });
 
-const Delivery = mongoose.model('User', deliveryScheama);
-export default Delivery;
+  const Delivery = await newDelivery.save();
+  res.status(201).send({ message: 'Delivery added successfully!', Delivery });
+};
+
+export default {
+  add_delivery,
+};
