@@ -2,7 +2,7 @@ import express from 'express';
 import Order from '../../models/orderModel.js';
 
 //Save the  order
-//Testing
+
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
     orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
@@ -55,7 +55,6 @@ const update_order = async function (req, res) {
   }
 };
 
-//orderRouter.delete
 //Delete order -> for Admin
 const DeleteOrder = async function (req, res) {
   const order = await Order.findById(req.params.id);
@@ -67,4 +66,10 @@ const DeleteOrder = async function (req, res) {
   }
 };
 
-export default { creat_Order, get_orders, get_orders_byId, update_order };
+export default {
+  creat_Order,
+  get_orders,
+  get_orders_byId,
+  update_order,
+  DeleteOrder,
+};
