@@ -87,27 +87,6 @@ const DeleteOrder = async function (req, res) {
   }
 };
 
-//Return num of orders and total prices regarding the days
-const dailyOrders = await Order.aggregate([
-  {
-    $group: {
-      _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, //Format is Year-Month-Day
-      orders: { $sum: 1 }, //return number of orders
-      sales: { $sum: '$totalPrice' },
-    },
-  },
-  { $sort: { _id: 1 } },
-]);
-
-const productCategories = await Product.aggregate([
-  {
-    $group: {
-      _id: '$category',
-      count: { $sum: 1 },
-    },
-  },
-]);
-
 export default {
   creat_Order,
   get_orders,
