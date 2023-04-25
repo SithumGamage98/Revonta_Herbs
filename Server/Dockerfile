@@ -12,7 +12,7 @@ RUN npm install
 # Getting the bundle app source for the container
 COPY . .
 
-# host port initialization
+# Port initialization
 EXPOSE 8080
 
 CMD [ "node", "server.js" ]
