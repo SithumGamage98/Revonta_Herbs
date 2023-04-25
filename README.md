@@ -1,6 +1,10 @@
 # -Revonta Herbs Web Application-
 
-## Technologies - MernStack
+## Technologies - 
+### MernStack (MongoDb,Express,ReactJS,NodeJs)
+### Redux
+### HTML,CSS,Bootstrap
+### Docker,Kubernetes
 
 ## Collaborators -
 
