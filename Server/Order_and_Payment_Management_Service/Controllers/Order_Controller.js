@@ -26,7 +26,8 @@ const get_orders = async function e(req, res) {
 
 //Retriview order details -> by using order ID
 const get_orders_byId = async function (req, res) {
-  const order = await Order.findById(req.params.id); //using the order ID
+  //using the order ID
+  const order = await Order.findById(req.params.id);
   if (order) {
     res.send(order);
   } else {
