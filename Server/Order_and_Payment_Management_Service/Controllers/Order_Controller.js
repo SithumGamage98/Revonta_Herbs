@@ -1,8 +1,7 @@
 import express from 'express';
 import Order from '../../models/orderModel.js';
 
-//Save the  order
-
+//Save order deatils
 const creat_Order = async function (req, res) {
   const newOrder = new Order({
     orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
@@ -25,9 +24,10 @@ const get_orders = async function e(req, res) {
   res.send(orders);
 };
 
-//Retriview order details -> by using ID
+//Retriview order details -> by using order ID
 const get_orders_byId = async function (req, res) {
-  const order = await Order.findById(req.params.id); //using the order ID
+  //using the order ID
+  const order = await Order.findById(req.params.id);
   if (order) {
     res.send(order);
   } else {
@@ -35,9 +35,12 @@ const get_orders_byId = async function (req, res) {
   }
 };
 
-// update the order data
+//Update the order data and connect with Mailgun for sending emails to the users
 const update_order = async function (req, res) {
-  const order = await Order.findById(req.params.id);
+  const order = await Order.findById(req.params.id).populate(
+    'user',
+    'email name'
+  );
   if (order) {
     order.isPaid = true;
     order.paidAt = Date.now();
@@ -49,13 +52,31 @@ const update_order = async function (req, res) {
     };
 
     const updatedOrder = await order.save();
+    mailgun()
+      .messages()
+      .send(
+        {
+          from: 'Revonta <revonta@mg.revontaherbs.com>',
+          to: `${order.user.name} <${order.user.email}>`,
+          subject: `New order ${order._id}`,
+          html: payOrderEmailTemplate(order),
+        },
+        (error, body) => {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(body);
+          }
+        }
+      );
+
     res.send({ message: 'Order Paid', order: updatedOrder });
   } else {
     res.status(404).send({ message: 'Order Not Found' });
   }
 };
 
-//Delete order -> for Admin
+//Delete order
 const DeleteOrder = async function (req, res) {
   const order = await Order.findById(req.params.id);
   if (order) {
@@ -65,6 +86,27 @@ const DeleteOrder = async function (req, res) {
     res.status(404).send({ message: 'Order Not Found' });
   }
 };
+
+//Return num of orders and total prices regarding the days
+const dailyOrders = await Order.aggregate([
+  {
+    $group: {
+      _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, //Format is Year-Month-Day
+      orders: { $sum: 1 }, //return number of orders
+      sales: { $sum: '$totalPrice' },
+    },
+  },
+  { $sort: { _id: 1 } },
+]);
+
+const productCategories = await Product.aggregate([
+  {
+    $group: {
+      _id: '$category',
+      count: { $sum: 1 },
+    },
+  },
+]);
 
 export default {
   creat_Order,
