@@ -22,9 +22,25 @@
 
 #### 03. A buyer could purchase multiple herbal items from the web store
 
-#### 04. The buyers could make the payements for their purchase orders via credit card or paypal/ payhere services
+#### 04. The buyers could make the payements for their purchase orders via credit card (payment getaway) or paypal/ payhere services
 
-#### 05. The system has the access for a payment gateway allowing credit card transactions
+#### 05. When an item is purchased, buyer may select the delivery option and thereafter a request will be sent to the third party delivery service DHL
+
+#### 06. The buyers could review the products they purchase by putting a rating on those individual products
+
+#### 07. The administrator could verify the order and manually confirm it when an item is purchased by a buyer
+
+#### 08. There is an interface for the buyer to track the order status(pending/ confirmed/ dispacthed/ delivered)
+
+#### 09. The sellers could add the herbal products and then update or delete them accordingly
+
+#### 10. The administrator could view the sales and order analytics and further he could manage the users of the system with regard to their consecutive roles
+
+#### 11. For every individual purchase from the system, a commission is charged as the main revenue source of the web platform (This may include the fess of the payment service used for purchasing the products) 
+
+
+
+
 
 <hr>
 ### System Logo
