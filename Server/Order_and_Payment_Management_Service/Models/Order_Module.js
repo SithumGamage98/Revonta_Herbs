@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 
-const orderSchema = new mongoose.Schema(
+//create order & payment scheams -> useing mongoose
+const orderAndPaymentSchema = new mongoose.Schema(
   {
+    //for order items
     orderItems: [
       {
         slug: { type: String, required: true },
@@ -16,7 +18,7 @@ const orderSchema = new mongoose.Schema(
         },
       },
     ],
-
+    //For payment method
     paymentMethod: { type: String, required: true },
     paymentResult: {
       id: String,
@@ -24,9 +26,10 @@ const orderSchema = new mongoose.Schema(
       update_time: String,
       email_address: String,
     },
+    //For create payment summary
     itemsPrice: { type: Number, required: true },
     shippingPrice: { type: Number, required: true },
-    taxPrice: { type: Number, required: true },
+    commisionCost: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     isPaid: { type: Boolean, default: false },
@@ -39,5 +42,5 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
-const Order = mongoose.model('Order', orderSchema);
-export default Order;
+const OrderAndPayment = mongoose.model('Order', orderAndPaymentSchema);
+export default OrderAndPayment;
