@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: revonta-delivery
+  name: revonta-reviews
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: revonta-delivery
+      app: revonta-reviews
   template:
     metadata:
       labels:
-        app: revonta-delivery
+        app: revonta-reviews
     spec:
       containers:
-        - name: revonta-delivery
-          image: revonta-delivery:latest
+        - name: revonta-reviews
+          image: revonta-reviews:latest
           ports:
             - containerPort: 3000

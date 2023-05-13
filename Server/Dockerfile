@@ -1,14 +1,20 @@
-import express from 'express';
-import {
-  user_signIn,
-  user_signUp,
-  user_update,
-} from '../Controllers/User_Controller';
+# Use an official Node.js runtime as a parent image
+FROM node:16-alpine
 
-const userRouter = express.Router();
+# Set the working directory to /app
+WORKDIR /app
 
-userRouter.post('/signin', user_signIn);
-userRouter.post('/signup', user_signUp);
-userRouter.put('/profile', user_update);
+# Copy the package.json and package-lock.json to /app
+COPY package*.json ./
 
-export default userRouter;
+# Install app dependencies
+RUN npm i
+
+# Copy the application code to /app
+COPY . .
+
+# Expose the port that the application is listening on
+EXPOSE 8000
+
+# Start the application
+CMD ["npm", "start"]
