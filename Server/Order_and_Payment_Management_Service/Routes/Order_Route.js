@@ -7,12 +7,12 @@ import {
   DeleteOrder,
 } from '../Controllers/Order_Controller';
 
-const orderRouter = express.Router();
+const orderAndPaymentRouter = express.Router();
 
-orderRouter.post('/', creat_Order);
-orderRouter.get('/mine', get_orders);
-orderRouter.get('/:id', get_orders_byId);
-orderRouter.put('/:id/pay', update_order);
-orderRouter.put('/:id', DeleteOrder);
+orderAndPaymentRouter.post('/', creat_Order);
+orderAndPaymentRouter.get('/mine', get_orders);
+orderAndPaymentRouter.get('/:id', get_orders_byId);
+orderAndPaymentRouter.put('/:id/pay', update_order);
+orderAndPaymentRouter.put('/:id', DeleteOrder);
 
 export default orderRouter;

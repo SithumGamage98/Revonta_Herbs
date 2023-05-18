@@ -1,15 +1,15 @@
 import express from 'express';
-import Order from '../../models/orderModel.js';
+import OrderAndPayment from '../Models/Order_Module';
 
 //Save order deatils
 const creat_Order = async function (req, res) {
-  const newOrder = new Order({
+  const newOrder = new OrderAndPayment({
     orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
     shippingAddress: req.body.shippingAddress,
     paymentMethod: req.body.paymentMethod,
     itemsPrice: req.body.itemsPrice,
     shippingPrice: req.body.shippingPrice,
-    taxPrice: req.body.taxPrice,
+    CommisionCost: req.body.CommisionCost,
     totalPrice: req.body.totalPrice,
     user: req.user._id,
   });
@@ -20,14 +20,14 @@ const creat_Order = async function (req, res) {
 
 //For order History -> Return List Of orders of current user
 const get_orders = async function e(req, res) {
-  const orders = await Order.find({ user: req.user._id });
+  const orders = await OrderAndPayment.find({ user: req.user._id });
   res.send(orders);
 };
 
 //Retriview order details -> by using order ID
 const get_orders_byId = async function (req, res) {
   //using the order ID
-  const order = await Order.findById(req.params.id);
+  const order = await OrderAndPayment.findById(req.params.id);
   if (order) {
     res.send(order);
   } else {
@@ -37,7 +37,7 @@ const get_orders_byId = async function (req, res) {
 
 //Update the order data and connect with Mailgun for sending emails to the users
 const update_order = async function (req, res) {
-  const order = await Order.findById(req.params.id).populate(
+  const order = await OrderAndPayment.findById(req.params.id).populate(
     'user',
     'email name'
   );
@@ -78,7 +78,7 @@ const update_order = async function (req, res) {
 
 //Delete order
 const DeleteOrder = async function (req, res) {
-  const order = await Order.findById(req.params.id);
+  const order = await OrderAndPayment.findById(req.params.id);
   if (order) {
     await order.deleteOne();
     res.send({ message: 'Order Deleted Successfully..!' });

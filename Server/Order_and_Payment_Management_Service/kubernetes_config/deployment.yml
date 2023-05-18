@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: revonta-order and payment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: revonta-order and payment
+  template:
+    metadata:
+      labels:
+        app: revonta-order and payment
+    spec:
+      containers:
+        - name: revonta-order and payment
+          image: revonta-order and payment:latest
+          ports:
+            - containerPort: 3000

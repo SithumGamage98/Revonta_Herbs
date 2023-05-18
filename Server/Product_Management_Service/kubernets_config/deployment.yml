@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: revonta-products
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: revonta-products
+  template:
+    metadata:
+      labels:
+        app: revonta-products
+    spec:
+      containers:
+        - name: revonta-products
+          image: revonta-products:latest
+          ports:
+            - containerPort: 3000

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: revonta-user
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: revonta-user
+  template:
+    metadata:
+      labels:
+        app: revonta-user
+    spec:
+      containers:
+        - name: revonta-user
+          image: revonta-user:latest
+          ports:
+            - containerPort: 3000

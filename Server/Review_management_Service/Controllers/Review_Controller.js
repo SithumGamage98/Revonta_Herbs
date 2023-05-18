@@ -26,13 +26,13 @@ const send_Review = async function (req, res) {
       product.reviews.length;
     const updatedProduct = await product.save();
     res.status(201).send({
-      message: 'Review Created',
+      message: 'Review Status Created',
       review: updatedProduct.reviews[updatedProduct.reviews.length - 1],
       numReviews: product.numReviews,
       rating: product.rating,
     });
   } else {
-    res.status(404).send({ message: 'Product Not Found' });
+    res.status(404).send({ message: 'Product Not Found...' });
   }
 };
 

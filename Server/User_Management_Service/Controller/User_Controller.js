@@ -11,7 +11,6 @@ const user_signIn = async function (req, res) {
   if (user) {
     // Checking password
     if (bcrypt.compareSync(req.body.password, user.password)) {
-      //1 st para -> Visible/printed Password / 2nd para -> increpted password (bcrypt is use for create an encript password)
       res.send({
          _id: user._id,
           name: user.name,

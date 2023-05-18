@@ -1,18 +1,20 @@
-FROM node:16
+# Use an official Node.js runtime as a parent image
+FROM node:16-alpine
 
-# Creating app directory
-WORKDIR /usr/src/app
+# Set the working directory to /app
+WORKDIR /app
 
-# Installation of app dependencies
+# Copy the package.json and package-lock.json to /app
 COPY package*.json ./
 
-# Installation of requirements
-RUN npm install
+# Install app dependencies
+RUN npm i
 
-# Getting the bundle app source for the container
+# Copy the application code to /app
 COPY . .
 
-# Port initialization
-EXPOSE 8080
+# Expose the port that the application is listening on
+EXPOSE 8000
 
-CMD [ "node", "server.js" ]
+# Start the application
+CMD ["npm", "start"]

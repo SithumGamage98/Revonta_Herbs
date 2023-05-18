@@ -1,5 +1,5 @@
 import express from 'express';
-import Delivery from '../Models/Delivery_Model';
+import Delivery from '../models/Delivery_Model';
 
 //Create a delivery
 const add_delivery = async function (req, res) {
