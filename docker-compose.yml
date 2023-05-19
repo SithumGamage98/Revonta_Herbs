@@ -13,7 +13,7 @@ services:
     restart: always
     build: ./client
     ports: 
-      - "8080:8080"
+      - "8081:4000"
     depends_on: 
       - api
   mongo:
