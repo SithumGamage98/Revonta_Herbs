@@ -27,4 +27,5 @@ services:
       - apiDB:/data/db
 
 volumes: 
-  apiDB:
+  apiDB:/data/db
+
